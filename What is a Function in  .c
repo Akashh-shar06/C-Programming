@@ -31,7 +31,7 @@ PROGRAM:---------------------
 
 #include <stdio.h>
 
-void add() { -- Parameter
+void add() { -- Parameter --}
     int a = 5, b = 3;
     int sum = a + b;
     printf("Sum = %d\n", sum);
