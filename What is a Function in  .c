@@ -21,8 +21,8 @@ Syntax: return_type function_name(parameters) { /* code */ }
 
 ---------------------- Addition User Define Function Types ------------------------------
          1. Without Return & Without Parameters
-         2. With Return & Without Parameters
-         3. With Parameters & Without Return
+         2. With Parameters & Without Return
+         3. With Return & Without Parameters
          4. With Parameters & With Return
 
 ---------------------------------------------------------------------------------------
@@ -119,4 +119,35 @@ int main(){
 
     return 0;
 }
+
+
+2.Without return & Parameter passes 
+**CODE**
+
+#include <stdio.h>
+
+// No Return Value & Parameter Pass
+
+void Swap(int a , int b){
+    int temp;
+    
+    temp = a;
+    a =b;
+    b = temp;
+    
+    printf("After swap: a = %d b = %d\n" , a,b);
+}
+
+int main() {
+    int num1 = 5 ,num2 = 10;
+ printf("before swap :a = %d b = %d\n" , num1 , num2);
+ 
+Swap(num1 , num2);
+
+    return 0;
+}
+
+3.Wuth Return & Without Parameter 
+**CODE**
+
 
