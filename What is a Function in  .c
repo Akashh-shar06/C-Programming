@@ -42,8 +42,9 @@ int main() {
     return 0;
 }
 
-**code**
-// Online C compiler to run C program online
+**CODE** 
+       ------------------------------- Example ----------------------------------
+                        **Without Return Value & Without Parameters**
 #include <stdio.h>
 
 void Addition(){
@@ -125,7 +126,6 @@ int main(){
 **CODE**
 
 #include <stdio.h>
-
 // No Return Value & Parameter Pass
 
 void Swap(int a , int b){
@@ -147,7 +147,48 @@ Swap(num1 , num2);
     return 0;
 }
 
-3.Wuth Return & Without Parameter 
+3. With Return & Without Parameter 
 **CODE**
 
+#include <stdio.h>
+
+int getSquare (void) {
+    int num;
+    
+    printf("enter the value:");
+    scanf("%d" , &num);
+    
+    return num * num;
+}
+
+int main() {
+    
+    int result;
+    result = getSquare();
+        
+    printf("the square is: %d\n" , result);  
+    return 0;
+}
+
+4. With Parameters & With Return
+
+**CODE**
+
+#include <stdio.h>
+int add(int n1, int n2){
+    return n1+n2;
+}
+
+int main() {
+    int num1,num2;
+    
+    printf("Enter the value : ");
+    scanf("%d",&num1);
+    
+    printf("Enter the value : ");
+    scanf("%d",&num2);
+    
+    printf("%d + %d = %d",num1,num2,add(num1,num2));
+    return 0;
+}
 
