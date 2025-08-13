@@ -122,12 +122,34 @@ int main(){
 }
 
 
-2.Without return & Parameter passes 
-**CODE**
+2. Without return & Parameter passes 
+#include <stdio.h>
+
+// Function declaration
+void printSquare(int num); // takes parameter, no return
+
+int main() {
+    int value;
+
+    printf("Enter a number: ");
+    scanf("%d", &value);
+
+    printSquare(value); // calling function with a parameter
+
+    return 0;
+}
+
+// Function definition
+void printSquare(int num) {
+    int square = num * num;
+    printf("The square is: %d\n", square);
+}
+
+-------------------------------------------- EXAMPLE -------------------------------------------
+                              ** Without return & Parameter passes ** 
 
 #include <stdio.h>
-// No Return Value & Parameter Pass
-
+         
 void Swap(int a , int b){
     int temp;
     
@@ -148,8 +170,34 @@ Swap(num1 , num2);
 }
 
 3. With Return & Without Parameter 
-**CODE**
 
+#include <stdio.h>
+
+// Function declaration
+int getNumber(void); // no parameter, returns int
+
+int main() {
+    int value;
+
+    value = getNumber(); // calling the function
+
+    printf("The number is: %d\n", value);
+
+    return 0;
+}
+
+// Function definition
+int getNumber(void) {
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    return num; // returning the value to main
+}
+
+--------------------------------------------- EXAMPLE ----------------------------------------------------
+                                  ** With Return & Without Parameter **
 #include <stdio.h>
 
 int getSquare (void) {
