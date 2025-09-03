@@ -19,6 +19,7 @@ int main() {
     printf("\nEnter elements of first matrix:\n");
     for (int i = 0; i < r1; i++) {
         for (int j = 0; j < c1; j++) {
+            printf("A[%d][%d]: ", i+1, j+1);
             scanf("%d", &A[i][j]);
         }
     }
@@ -26,6 +27,7 @@ int main() {
     printf("\nEnter elements of second matrix:\n");
     for (int i = 0; i < r2; i++) {
         for (int j = 0; j < c2; j++) {
+            printf("B[%d][%d]: ", i+1, j+1);
             scanf("%d", &B[i][j]);
         }
     }
