@@ -1,4 +1,3 @@
-// Online C compiler to run C program online
 #include <stdio.h>
 #include <math.h>
 
@@ -12,6 +11,7 @@ float calculator (float a , float b , char option);
 int isArmstrong (int num);
 int Factorial (int num);
 int ispalindrome (int num);
+int power(int base, int exp);
 
 int main () {
     struct Data d1;
@@ -71,7 +71,7 @@ int main () {
                 printf("%d is not palindrome number. \n : " , d1.num);
                 
         case 5:
-                printf("Exiting program. Goodbye!\n");
+                printf("Exiting program.\n");
                 break;
 
             default:
@@ -84,8 +84,8 @@ int main () {
     return 0;
 }
 
-float calculate(float a, float b, char op) {
-    switch (op) {
+float calculator(float a, float b, char option) {
+    switch (option) {
         case '+': return a + b;
         case '-': return a - b;
         case '*': return a * b;
@@ -96,130 +96,45 @@ float calculate(float a, float b, char op) {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Function definitions
-
-// float calculate(float a, float b, char op) {
-//     switch (op) {
-//         case '+': return a + b;
-//         case '-': return a - b;
-//         case '*': return a * b;
-//         case '/': return (b != 0) ? a / b : 0;
-//         default:
-//             printf("Invalid operator.\n");
-//             return 0;
-//     }
-// }
-
-// int isArmstrong(int num) {
-//     int original = num, sum = 0, digits = 0, temp = num;
-
-//     while (temp != 0) {
-//         digits++;
-//         temp /= 10;
-//     }
-
-//     temp = original;
-//     while (temp != 0) {
-//         int digit = temp % 10;
-//         sum += power(digit, digits);  // Using custom power function
-//         temp /= 10;
-//     }
-
-//     return sum == original;
-// }
-
-// int factorial(int num) {
-//     int fact = 1;
-//     for (int i = 1; i <= num; i++)
-//         fact *= i;
-//     return fact;
-// }
-
-// int isPalindrome(int num) {
-//     int reversed = 0, original = num;
-
-//     while (num != 0) {
-//         reversed = reversed * 10 + num % 10;
-//         num /= 10;
-//     }
-
-//     return reversed == original;
-// }
-
-// // Custom power function (integer base and exponent)
-// int power(int base, int exp) {
-//     int result = 1;
-//     for (int i = 0; i < exp; i++)
-//         result *= base;
-//     return result;
-// }
-
+int isArmstrong(int num) {
+    int original = num, sum = 0, digits = 0, temp = num;
+
+    while (temp != 0) {
+        digits++;
+        temp /= 10;
+    }
+
+    temp = original;
+    while (temp != 0) {
+        int digit = temp % 10;
+        sum += power(digit, digits); 
+        temp /= 10;
+    }
+
+    return sum == original;
+}
+
+int Factorial(int num) {
+    int fact = 1;
+    for (int i = 1; i <= num; i++)
+        fact *= i;
+    return fact;
+}
+
+int isPalindrome(int num) {
+    int reversed = 0, original = num;
+
+    while (num != 0) {
+        reversed = reversed * 10 + num % 10;
+        num /= 10;
+    }
+
+    return reversed == original;
+}
+
+int power(int base, int exp) {
+    int result = 1;
+    for (int i = 0; i < exp; i++)
+        result *= base;
+    return result;
+}
