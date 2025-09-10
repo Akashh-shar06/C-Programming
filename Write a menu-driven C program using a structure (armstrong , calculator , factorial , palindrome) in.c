@@ -2,18 +2,19 @@
 #include <math.h>
 
 struct Data {
-    float num1 , num2;
-    int num;
-    char option;
+    float num1, num2;  
+    int num;           
+    int base, exp;      
+    char option;       
 };
 
-float calculator (float a , float b , char option);
-int isArmstrong (int num);
-int Factorial (int num);
-int ispalindrome (int num);
+float calculator(float a, float b, char option);
+int isArmstrong(int num);
+int Factorial(int num);
+int isPalindrome(int num);
 int power(int base, int exp);
 
-int main () {
+int main() {
     struct Data d1;
     int choice;
     
@@ -23,16 +24,17 @@ int main () {
         printf("2. Armstrong Number\n");
         printf("3. Factorial Number\n");
         printf("4. Palindrome Number\n");
-        printf("5. Exit\n");
+        printf("5. Power Number\n");
+        printf("6. Exit\n");
         printf("Enter your Choice : ");
-        scanf("%d" , &choice);
+        scanf("%d", &choice);
     
         switch (choice) {
         case 1:
-            printf("Enter first number: ");
-            scanf("%f", &d1.num1);
             printf("Enter operator (+, -, *, /): ");
             scanf(" %c", &d1.option);
+            printf("Enter first number: ");
+            scanf("%f", &d1.num1);
             printf("Enter second number: ");
             scanf("%f", &d1.num2);
 
@@ -42,44 +44,53 @@ int main () {
             
         case 2:
             printf("Enter the number : ");
-            scanf("%d" , &d1.num);
+            scanf("%d", &d1.num);
             
-            if(isArmstrong(d1.num)){
+            if (isArmstrong(d1.num)) {
                 printf("%d is an Armstrong number.\n", d1.num);
             } else {
                 printf("%d is not an Armstrong number.\n", d1.num);
             }
             break;
             
-            case 3:
-                printf("Enter a number: ");
-                scanf("%d", &d1.num);
+        case 3:
+            printf("Enter a number: ");
+            scanf("%d", &d1.num);
                 
-                if (d1.num < 0)
+            if (d1.num < 0)
                 printf("Factorial is not defined for negative numbers.\n");
             else
                 printf("Factorial of %d is %d\n", d1.num, Factorial(d1.num));
             break;
             
         case 4:
-                printf("Enter the number : ");
-                scanf("%d" , &d1.num);
+            printf("Enter the number : ");
+            scanf("%d", &d1.num);
             
-                if (d1.num  )
-                printf("%d palindrome number. \n : " , d1.num);
+            if (isPalindrome(d1.num))
+                printf("%d is a Palindrome number.\n", d1.num);
             else 
-                printf("%d is not palindrome number. \n : " , d1.num);
-                
-        case 5:
-                printf("Exiting program.\n");
-                break;
+                printf("%d is not a Palindrome number.\n", d1.num);
+            break;
 
-            default:
-                printf("Invalid choice. Try again.\n");
+        case 5:
+            printf("Enter base number: ");
+            scanf("%d", &d1.base);
+            printf("Enter exponent: ");
+            scanf("%d", &d1.exp);
+
+            printf("%d ^ %d = %d\n", d1.base, d1.exp, power(d1.base, d1.exp));
+            break;
+
+        case 6:
+            printf("Exiting program.\n");
+            break;
+
+        default:
+            printf("Invalid choice. Try again.\n");
         }
 
-    } while (choice != 5);
-
+    } while (choice != 6);
 
     return 0;
 }
@@ -107,7 +118,7 @@ int isArmstrong(int num) {
     temp = original;
     while (temp != 0) {
         int digit = temp % 10;
-        sum += power(digit, digits); 
+        sum += pow(digit, digits); 
         temp /= 10;
     }
 
@@ -134,7 +145,8 @@ int isPalindrome(int num) {
 
 int power(int base, int exp) {
     int result = 1;
-    for (int i = 0; i < exp; i++)
+    for (int i = 0; i < exp; i++) {
         result *= base;
+    }
     return result;
 }
