@@ -1,9 +1,10 @@
 #include <stdio.h>
 
 #define NAME_LENGTH 50
-#define MAX_STUDENT 5
+#define MAX_STUDENT 100
+#define MAX_CLASSROOM 10 
 
-typedef struct {
+  typedef struct {
     int rollNo;
     char name[NAME_LENGTH];
     int age;
@@ -11,45 +12,62 @@ typedef struct {
 
 typedef struct {
     char className[20];
+    char classTeacher[NAME_LENGTH];
+} ClassroomInfo;
+
+typedef struct {
+    ClassroomInfo info;           
     int totalStudent;
-    Student students[MAX_STUDENT];
+    Student students[MAX_STUDENT]; 
 } Classroom;
 
 int main() {
-    Classroom c1;
-    
-    printf("Enter the classroom Name : ");
-    scanf("%s" , &c1.className);
-    
-    printf("Enter the number of Student (%d MAX) : " , MAX_STUDENT);
-    scanf("%d" , &c1.totalStudent);
-    
-    if (c1.totalStudent > MAX_STUDENT) {
-        printf("Limit of total students is %d.\n", MAX_STUDENT);
-        c1.totalStudent = MAX_STUDENT;
+    Classroom classrooms[MAX_CLASSROOM];
+    int totalClassrooms;
+
+    printf("Enter number of Classrooms (Max %d): ", MAX_CLASSROOM);
+    scanf("%d", &totalClassrooms);
+
+    for (int c = 0; c < totalClassrooms; c++) {
+        printf("\n===== Enter details for Classroom %d =====\n", c + 1);
+
+        printf("Enter Classroom Name: ");
+        scanf("%s", classrooms[c].info.className);
+
+        printf("Enter Classroom Teacher: ");
+        scanf("%s", classrooms[c].info.classTeacher);
+
+        printf("Enter number of Students (Max %d): ", MAX_STUDENT);
+        scanf("%d", &classrooms[c].totalStudent);
+
+        for (int i = 0; i < classrooms[c].totalStudent; i++) {
+            printf("\n--- Enter details of Student %d ---\n", i + 1);
+
+            printf("Roll No: ");
+            scanf("%d", &classrooms[c].students[i].rollNo);
+
+            printf("Name: ");
+            scanf("%s", classrooms[c].students[i].name);
+
+            printf("Age: ");
+            scanf("%d", &classrooms[c].students[i].age);
+        }
     }
-    
-    for (int i = 0; i < c1.totalStudent; i++) {
-        printf("\nEnter the details of Student %d\n", i + 1);
 
-        printf("Name: ");
-        scanf("%s", c1.students[i].name);
+    printf("\n\n========== All Classroom Details ==========\n");
 
-         printf("Roll No: ");
-        scanf("%d", &c1.students[i].rollNo);
-        
-        printf("Age: ");
-        scanf("%d", &c1.students[i].age);
-    }
-        printf("\n--- Classroom Details ---\n");
-        printf("Classroom Name: %s\n", c1.className);
-        printf("Total Students: %d\n", c1.totalStudent);
+    for (int c = 0; c < totalClassrooms; c++) {
+        printf("\n--- Classroom %d ---\n", c + 1);
+        printf("Classroom Name   : %s\n", classrooms[c].info.className);
+        printf("Classroom Teacher: %s\n", classrooms[c].info.classTeacher);
+        printf("Total Students   : %d\n", classrooms[c].totalStudent);
 
-        for (int i = 0; i < c1.totalStudent; i++) {
-                    printf("\nStudent %d:\n", i + 1);
-                printf(" Roll No: %d\n", c1.students[i].rollNo);
-            printf(" Name   : %s\n", c1.students[i].name);
-        printf(" Age    : %d\n", c1.students[i].age);
+        for (int i = 0; i < classrooms[c].totalStudent; i++) {
+            printf("\nStudent %d:\n", i + 1);
+            printf(" Roll No : %d\n", classrooms[c].students[i].rollNo);
+            printf(" Name    : %s\n", classrooms[c].students[i].name);
+            printf(" Age     : %d\n", classrooms[c].students[i].age);
+        }
     }
 
     return 0;
